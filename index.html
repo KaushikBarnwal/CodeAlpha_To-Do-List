@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List...</title>
+    <link rel="stylesheet" href="ToDo.css">
+</head>
+<body>
+    <div class="main">
+        <div class="todobox">
+            <h2><b> To-Do List... </b> <img src="image/todo2.png"></h2>
+            <div class="typebox">
+                <input type="text" id="write" placeholder="Add the Task..." onkeydown="if (event.keyCode === 13) addList()">
+                <button onclick="addList()">ADD</button>
+            </div>
+            <ul id="listbox">
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script src="ToDo.js"></script>
+</body>
+</html>
