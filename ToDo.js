@@ -5,7 +5,7 @@ function addList(){
     if (writehere.value === ''){
         alert("You haven't write anything, Please Write some Task first!");
     } else {
-        let priority = prompt("Enter Priority for this List (1-5):", "3");
+        let priority = prompt("Enter Priority for this List (1-5):");
         priority = parseInt(priority);
         if (isNaN(priority) || priority < 1 || priority > 5){
             alert("Please Enter a Valid Priority from (1-5).");
@@ -13,7 +13,7 @@ function addList(){
         }
 // for adding lists
         let create_li = document.createElement("li");
-        create_li.innerHTML = writehere.value;
+        create_li.innerHTML = `${writehere.value} (Priority: ${priority})`; // Include priority
         create_li.dataset.priority = priority;
         listhere.appendChild(create_li);
         let cross_span = document.createElement("span");
