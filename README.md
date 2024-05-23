@@ -58,3 +58,5 @@ The application is designed to adapt to different screen sizes and devices, prov
 Thank you for using our **To-Do List Web Application**! We hope it helps you stay organized and productive. If you have any feedback or suggestions for improvement, please feel free to contact us. **Happy task managing!** 🎉
 
 ---
+
+Thank you for using our To-Do List Web Application! We hope it helps you stay organized and productive. If you have any feedback or suggestions for improvement, please feel free to contact me. Happy task managing! 🎉
