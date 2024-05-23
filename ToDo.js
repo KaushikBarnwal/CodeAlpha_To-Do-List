@@ -1,6 +1,7 @@
 const writehere = document.getElementById("write");
 const listhere = document.getElementById("listbox");
 const priority = document.getElementById("setpriority");
+const addButton = document.querySelector(".typebox button");
 let priorityNumber;
 // Function to add a new list item
 function addList() {
@@ -13,33 +14,28 @@ function addList() {
     create_li.innerHTML = `${writehere.value} (Priority: ${priorityNumber})`; // Include priority
     create_li.dataset.priority = priorityNumber;
     listhere.appendChild(create_li);
-
     // Add delete button
     let cross_span = document.createElement("span");
     cross_span.innerHTML = '<img src="image/x2.png" />';
     create_li.appendChild(cross_span);
 
-    sortlist(); // Sort the list
-    writehere.value = ""; // Clear the input field
-    savelist(); // Save the list
+    sortlist();
+    writehere.value = "";
+    savelist();
   }
 }
-
 // Function to mark as checked/unchecked or delete
-listhere.addEventListener(
-  "click",
-  function (checking) {
+listhere.addEventListener("click", function (checking) {
     if (checking.target.tagName === "LI") {
       checking.target.classList.toggle("ticked"); // Toggle class for checked/unchecked
-      savelist(); // Save the list
+      savelist();
     } else if (checking.target.tagName === "IMG") {
       checking.target.closest("li").remove(); // Remove the list item
-      savelist(); // Save the list
+      savelist();
     }
   },
   false
 );
-
 // Function to sort by priority
 function sortlist() {
   let items = Array.from(listhere.children);
@@ -52,14 +48,42 @@ function sortlist() {
   items.forEach((item) => listhere.appendChild(item)); // Re-add sorted items
 }
 
-// Function to save the list in local storage
+// Function for handling keys clicking and arrow choice and cursor
+document.addEventListener("DOMContentLoaded", function() {
+  writehere.focus();
+});
+writehere.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      priority.focus();
+    }
+  }
+);
+priority.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addButton.click();
+      writehere.focus();
+    }
+    else if (event.key >= "1" && event.key <= "5") {
+      priority.value = event.key;
+    }
+  }
+);
+// Add and remove the 'focused' class on focus and blur events
+priority.addEventListener("focus", function() {
+  priority.classList.add("focused");
+});
+priority.addEventListener("blur", function() {
+  priority.classList.remove("focused");
+});
+
+// Function to save and show the list in local storage(browser)
 function savelist() {
   localStorage.setItem("ListData", listhere.innerHTML);
 }
-
-// Function to show the list from local storage
 function showlist() {
   listhere.innerHTML = localStorage.getItem("ListData");
 }
 
-showlist(); // Show the list
+showlist();

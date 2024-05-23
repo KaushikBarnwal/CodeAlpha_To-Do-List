@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List...</title>
-    <link rel="stylesheet" href="ToDo.css" />
+    <link rel="stylesheet" href="ToDo.css">
   </head>
   <body>
     <div class="main">
       <div class="todobox">
-        <h2><b> To-Do List... </b> <img src="image/todo2.png" /></h2>
+        <h2><b> To-Do List... </b> <img src="image/todo2.png" alt="ToDo avatar img"></h2>
         <div class="typebox">
-          <select name="pre" id="setpriority">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <input
-            type="text"
-            id="write"
-            placeholder="Add the Task..."
-            onkeydown="if (event.keyCode === 13) addList()"
-          />
+          <div class="inputpriority">
+            <input type="text" id="write" placeholder="Add the Task..."> <!-- onkeydown="if (event.keyCode === 13) addList()" -->
+            <select name="pre" id="setpriority">
+              <option id="priority1" value="1">1</option>
+              <option id="priority2" value="2">2</option>
+              <option id="priority3" value="3">3</option>
+              <option id="priority4" value="4">4</option>
+              <option id="priority5" value="5">5</option>
+            </select>
+          </div>
           <button onclick="addList()">ADD</button>
         </div>
         <ul id="listbox"></ul>
